@@ -3,21 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Image Classification</title>
+  <title>Image Uploader</title>
   <style>
     body {
       font-family: Arial, sans-serif;
     }
+    .elements {
+      margin-bottom: 20px;
+    }
+    .uploadbtn {
+      background-color: #b5b5b5;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
-  <h1>Image Classification</h1>
-  <form id="uploadForm" enctype="multipart/form-data">
-    <input type="file" name="image" accept="image/*">
-    <button type="submit">Classify Image</button>
-  </form>
-  <div id="result"></div>
+  <div>
+    <div class="elements">
+      <input type="file" id="fileInput" />
+      <button class="uploadbtn" id="classifyButton">Upload and Classify</button>
+    </div>
+    <div id="resultContainer"></div>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
-

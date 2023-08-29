@@ -1,23 +1,48 @@
-const uploadForm = document.getElementById('uploadForm');
-const resultDiv = document.getElementById('result');
+document.addEventListener('DOMContentLoaded', () => {
+  const fileInput = document.getElementById('fileInput');
+  const classifyButton = document.getElementById('classifyButton');
+  const resultContainer = document.getElementById('resultContainer');
 
-uploadForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
+  classifyButton.addEventListener('click', async () => {
+    const file = fileInput.files[0];
+    if (!file) {
+      return;
+    }
 
-  const formData = new FormData(uploadForm);
+    const formData = new FormData();
+    formData.append('image', file);
 
-  try {
-    const response = await fetch('/classifyuploadimage', {
-      method: 'POST',
-      body: formData,
-    });
+    try {
+      const response = await fetch(
+        'http://localhost:4000/classifyuploadimage',
+        {
+          method: 'POST',
+          body: formData,
+        }
+      );
 
-    const data = await response.json();
+      if (!response.ok) {
+        throw new Error('Classification request failed');
+      }
 
-    // Display the classification result
-    resultDiv.innerHTML = `Classification Result: ${JSON.stringify(data)}`;
-  } catch (error) {
-    console.error(error);
-    resultDiv.innerHTML = 'An error occurred while classifying the image.';
-  }
+      const result = await response.json();
+
+      resultContainer.innerHTML = '';
+      resultContainer.innerHTML += `<img src="${URL.createObjectURL(
+        file
+      )}" alt="Uploaded" width="300"><br>`;
+
+      result.predictions.forEach((item, index) => {
+        const p = document.createElement('p');
+        p.textContent = `${item.tagName}: ${Math.round(
+          item.probability * 100
+        )}%`;
+        resultContainer.appendChild(p);
+      });
+    } catch (error) {
+      console.error(error);
+      resultContainer.innerHTML =
+        'An error occurred while classifying the image.';
+    }
+  });
 });
