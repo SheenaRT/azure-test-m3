@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "nodemon app.js",
-    "test":"jest --coverage --watchAll"
+    "dev": "nodemon app.js"
+   
    
    
   },
