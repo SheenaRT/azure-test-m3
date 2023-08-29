@@ -1,14 +1,23 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>Express</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Classification</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+  </style>
 </head>
-
 <body>
-  <h1>Express</h1>
-  <p>Welcome to Session</p>
-  <p>PatrickT</p>
+  <h1>Image Classification</h1>
+  <form id="uploadForm" enctype="multipart/form-data">
+    <input type="file" name="image" accept="image/*">
+    <button type="submit">Classify Image</button>
+  </form>
+  <div id="result"></div>
+  <script src="script.js"></script>
 </body>
-
 </html>
+
