@@ -51,4 +51,6 @@ const classifyUploadImage = async (req, res) => {
 };
 
 app.post('/classifyuploadimage', upload.single('image'), classifyUploadImage);
+module.exports = { classifyUploadImage };
+
 module.exports = app;
