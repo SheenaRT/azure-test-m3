@@ -4,30 +4,60 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Image Uploader</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
-    .elements {
-      margin-bottom: 20px;
-    }
-    .uploadbtn {
-      background-color: #b5b5b5;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-    }
-  </style>
+  <link rel="stylesheet" href="mystyle.css">
 </head>
+
+
 <body>
+   <!-- navbar -->
+   <div class="nav">
+    <input type="checkbox" id="nav-check">
+    <div class="nav-header">
+      <div class="nav-title">
+        Turners Cars API
+      </div>
+    </div>
+    <div class="nav-btn">
+      <label for="nav-check">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
+    
+    <div class="nav-links">
+      <a href="#" target="_blank">Login</a>
+      <a href="#" target="_blank">Find our branches</a>
+      <a href="#" target="_blank">Menu</a>
+   
+    </div>
+  </div>
+   <!-- Carousel -->
+   <div id="captioned-gallery">
+    <figure class="slider">
+      <figure>
+        <img src="hobbiton-lake.jpg" alt>
+        <figcaption>Copyright 2023 </figcaption>
+      </figure>
+      <figure>
+     
+    
+  </div>
+   
+  <!-- API -->
   <div>
     <div class="elements">
-      <input type="file" id="fileInput" />
+      <input type="file" id="fileInput" class="file" />
       <button class="uploadbtn" id="classifyButton">Upload and Classify</button>
     </div>
-    <div id="resultContainer"></div>
+    <div id="resultContainer" class="percentage"></div>
   </div>
   <script src="script.js"></script>
+
+  
+
+
+
+   
 </body>
 </html>
